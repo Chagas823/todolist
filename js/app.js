@@ -2,8 +2,8 @@ const lista = document.querySelector("#lista");
 let arrayAtividades = ["tarefa1", "tarefa2"];
 function elementoTarefa(atividade) {
   return `
-  <input type="checkbox" id="item1">
-  <label for="item1">${atividade}</label>
+  <input  type="checkbox" id="item1">
+  <label onclick='editar(this)' >${atividade}</label>
   
     `;
 }
@@ -19,6 +19,15 @@ function adicionar(tarefa) {
 function adicionarTarefa() {
   texto = prompt();
   console.log(texto);
-  arrayAtividades.push(texto);
-  adicionar(texto);
+  if (texto != null) {
+    console.log("aqui");
+    arrayAtividades.push(texto);
+    adicionar(texto);
+  }
+}
+function editar(elemento) {
+  const texto = prompt("editar tarefa", elemento.innerHTML);
+  if (texto != null) {
+    elemento.innerHTML = texto;
+  }
 }
