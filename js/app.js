@@ -2,7 +2,7 @@ const lista = document.querySelector("#lista");
 let arrayAtividades = ["tarefa1", "tarefa2"];
 function elementoTarefa(atividade) {
   return `
-  <input  type="checkbox" id="item1">
+  <input onclick="deletar(this)"  type="checkbox" id="item1">
   <label onclick='editar(this)' >${atividade}</label>
   
     `;
@@ -30,4 +30,20 @@ function editar(elemento) {
   if (texto != null) {
     elemento.innerHTML = texto;
   }
+}
+function deletar(elemento) {
+  if (
+    elemento.parentElement.children[1].style.textDecoration == "line-through"
+  ) {
+    elemento.parentElement.children[1].style.textDecoration = "none";
+  } else {
+    elemento.parentElement.children[1].style.textDecoration = "line-through";
+  }
+  setTimeout(() => {
+    if (
+      elemento.parentElement.children[1].style.textDecoration == "line-through"
+    ) {
+      elemento.parentElement.remove();
+    }
+  }, 3000);
 }
