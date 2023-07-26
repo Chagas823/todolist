@@ -10,6 +10,7 @@ function elementoTarefa(atividade) {
 arrayAtividades.forEach((atividade) => {
   adicionar(atividade);
 });
+//
 function adicionar(tarefa) {
   let li = document.createElement("li");
   li.innerHTML = elementoTarefa(tarefa);
